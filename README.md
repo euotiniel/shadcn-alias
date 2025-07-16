@@ -2,7 +2,7 @@
   shadcn-alias
 </h1>
 
-<br>
+<br><br>
 
 <p align="center">A CLI tool to automatically generate a file to centralize your shadcn/ui component imports.</p>
 
