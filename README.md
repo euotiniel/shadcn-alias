@@ -2,9 +2,9 @@
   shadcn-alias
 </h1>
 
-<br><br>
-
 <p align="center">A CLI tool to automatically generate a file to centralize your shadcn/ui component imports.</p>
+
+<br>
 
 This CLI tool scans your yours folder and creates a `ui.ts` file that re-exports everything in an organized way. With this, you get:
 
