@@ -1,0 +1,43 @@
+{
+  "name": "shadcn-alias",
+  "version": "1.0.13",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "shadcn-alias": "./dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shadcn",
+    "shadcn-ui",
+    "ui",
+    "alias",
+    "components",
+    "next.js",
+    "typescript",
+    "react",
+    "generator",
+    "cli",
+    "developer-tool"
+  ],
+  "author": "Otoniel Emanuel",
+  "license": "MIT",
+  "description": "A CLI tool to automatically generate a file to centralize your shadcn/ui component imports.",
+  "devDependencies": {
+    "@types/prompts": "^2.4.9",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
