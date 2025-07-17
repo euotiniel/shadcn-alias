@@ -34,10 +34,14 @@
   "description": "A CLI tool to automatically generate a file to centralize your shadcn/ui component imports.",
   "devDependencies": {
     "@types/prompts": "^2.4.9",
+    "@types/yargs": "^17.0.33",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "yargs": "^18.0.0"
   }
 }
