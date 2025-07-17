@@ -54,6 +54,24 @@ npm install -g shadcn-alias
 shadcn-alias [options]
 ```
 
+### Commands
+
+**`generate` (default)**
+
+This is the default command. It scans the input directory and generates the `ui.ts` file.
+
+```bash
+npx shadcn-alias [options]
+```
+
+**`check`**
+
+Performs a dry run. It analyzes your project, detects the component directory and path alias, and prints a summary of what it found and what it would generate, without writing or modifying any files. This is useful for verifying your configuration.
+
+```bash
+npx shadcn-alias check [options]
+```
+
 ### Options
 
 | Option     | Alias | Description                                                                  | Default         |

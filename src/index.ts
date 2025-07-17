@@ -51,29 +51,67 @@ async function main() {
     return
   }
 
-  const argv = await yargs(hideBin(process.argv))
-    .option("input", {
-      alias: "i",
-      type: "string",
-      description: "Input directory for components",
-      default: "components/ui",
-    })
-    .option("output", {
-      alias: "o",
-      type: "string",
-      description: "Output file path",
-    })
+  yargs(hideBin(process.argv))
+    .command(
+      "$0",
+      "Generate the ui.ts file",
+      (yargs) => {
+        return yargs
+          .option("input", {
+            alias: "i",
+            type: "string",
+            description: "Input directory for components",
+            default: "components/ui",
+          })
+          .option("output", {
+            alias: "o",
+            type: "string",
+            description: "Output file path",
+          })
+      },
+      (argv) => {
+        const inputPath = argv.input.trim()
+        const outputPath = argv.output?.trim()
+
+        if (!inputPath) {
+          console.log("\ncanceled")
+          return
+        }
+
+        generateUIFile(inputPath, outputPath, alias)
+      }
+    )
+    .command(
+      "check",
+      "Check the configuration and detected paths",
+      (yargs) => {
+        return yargs
+          .option("input", {
+            alias: "i",
+            type: "string",
+            description: "Input directory for components",
+            default: "components/ui",
+          })
+      },
+      (argv) => {
+        const inputPath = argv.input.trim()
+        const fullInputPath = path.join(process.cwd(), inputPath)
+        const outputPath = path.join(fullInputPath, "..", "ui.ts")
+
+        console.log("\n> Configuration Check (Dry Run):\n")
+        console.log(`  - Detected Alias:       '${alias}'`)
+        console.log(`  - Component Directory:  '${inputPath}'`)
+        console.log(`  - Generated File Would be: '${path.relative(process.cwd(), outputPath)}'`)
+        
+        if (!fs.existsSync(fullInputPath)) {
+          console.log("\n! Warning: Component directory does not exist.")
+        }
+        console.log("\nRun without 'check' to generate the file.")
+      }
+    )
+    .demandCommand(1, "You need at least one command before moving on")
+    .help()
     .parse()
-
-  const inputPath = argv.input.trim()
-  const outputPath = argv.output?.trim()
-
-  if (!inputPath) {
-    console.log("\ncanceled")
-    return
-  }
-
-  generateUIFile(inputPath, outputPath, alias)
 }
 
 main()
