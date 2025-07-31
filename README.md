@@ -44,42 +44,14 @@ No more remembering long paths like `@/components/ui/alert-dialog`. One file to 
 Run the command in the root of your project:
 
 ```bash
-npx shadcn-alias [options]
+npx shadcn-alias
 ```
 
 Or, if you prefer to install globally:
 
 ```bash
 npm install -g shadcn-alias
-shadcn-alias [options]
 ```
-
-### Commands
-
-**`generate` (default)**
-
-This is the default command. It scans the input directory and generates the `ui.ts` file.
-
-```bash
-npx shadcn-alias [options]
-```
-
-**`check`**
-
-Performs a dry run. It analyzes your project, detects the component directory and path alias, and prints a summary of what it found and what it would generate, without writing or modifying any files. This is useful for verifying your configuration.
-
-```bash
-npx shadcn-alias check [options]
-```
-
-### Options
-
-| Option     | Alias | Description                                                                  | Default         |
-| :--------- | :---- | :--------------------------------------------------------------------------- | :-------------- |
-| `--input`  | `-i`  | The directory where your `shadcn/ui` components are located.                 | `components/ui` |
-| `--output` | `-o`  | The path for the generated `ui.ts` file.                                     | `components/ui.ts` |
-
-The tool will automatically detect your path alias (e.g., `@/*`, `~/lib/*`) from your `tsconfig.json` or `jsconfig.json`.
 
 ## Example structure
 
